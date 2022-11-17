@@ -1,0 +1,18 @@
+.centered-column-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .title-text {
+    color: whitesmoke;
+  }
+
+  .title-text-secondary {
+    color: teal;
+  }
+  
+  .bg-dark-custom {
+    background-color: #171717;
+  }
