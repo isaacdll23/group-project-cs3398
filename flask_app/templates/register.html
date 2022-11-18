@@ -5,7 +5,19 @@
 {% block content %}
 <div class='centered-column-container'>
     <h3 class='title-text mb-5'>Register</h3>
-    <form method='post' action="{{url_for('auth.login')}}">
+
+    <div class="centered-column-container">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+            <p>{{ message }}</p>
+          {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </div>
+
+    <form method='post' action="{{url_for('auth.register')}}">
+    <input class='input-group-text mb-3' type='text' name='username' placeholder='Username'/>
       <input class='input-group-text mb-3' type='text' name='email' placeholder='Email'/>
       <input class='input-group-text mb-3' type='text' name='password' placeholder='Password'/>
       <input class='input-group-text mb-3' type='text' name='confirm_password' placeholder='Confirm Password'/>
