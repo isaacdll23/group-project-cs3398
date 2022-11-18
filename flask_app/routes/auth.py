@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
-from flask_login import login_user
+from flask_login import login_user, current_user, logout_user
 from flask_app.models import db, User
 
 # create blueprint for the authentication routes of the site
@@ -8,6 +8,8 @@ auth_blueprint = Blueprint('auth', __name__, url_prefix='/auth')
 @auth_blueprint.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'GET':
+        if current_user.is_authenticated:
+            return redirect(url_for('main.dashboard'))
         return render_template('login.html')
     else:
         # POST method
@@ -32,6 +34,8 @@ def login():
 @auth_blueprint.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'GET':
+        if current_user.is_authenticated:
+            return redirect(url_for('main.dashboard'))
         return render_template('register.html')
     else:
         # POST method
@@ -57,3 +61,8 @@ def register():
         flash('Successfully created account. Please Login.')
 
         return redirect(url_for('auth.login'))
+
+@auth_blueprint.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('auth.login'))

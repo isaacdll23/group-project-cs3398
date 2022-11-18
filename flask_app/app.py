@@ -26,6 +26,7 @@ def create_app():
     # initalize login manager
     login_manager = LoginManager()
     login_manager.init_app(app)
+    login_manager.login_view = 'auth.login'
 
     # login manager user loader callback function
     @login_manager.user_loader
