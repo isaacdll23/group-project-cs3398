@@ -10,3 +10,12 @@ def login():
     else:
         # POST method
         raise NotImplementedError
+
+
+@auth_blueprint.route('/register', methods=['GET', 'POST'])
+def register():
+    if request.method == 'GET':
+        return render_template('register.html')
+    else:
+        # POST method
+        raise NotImplementedError

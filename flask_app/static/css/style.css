@@ -13,6 +13,10 @@
     color: teal;
   }
   
+  p {
+    color: whitesmoke;
+  }
+
   .bg-dark-custom {
     background-color: #171717;
   }

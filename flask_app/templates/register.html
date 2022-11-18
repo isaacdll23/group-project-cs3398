@@ -1,17 +1,17 @@
 {% extends 'base.html' %}
 
-{% block title %}Login{% endblock %}
+{% block title %}Register{% endblock %}
 
 {% block content %}
 <div class='centered-column-container'>
-    <h3 class='title-text mb-5'>Login</h3>
+    <h3 class='title-text mb-5'>Register</h3>
     <form method='post' action="{{url_for('auth.login')}}">
       <input class='input-group-text mb-3' type='text' name='email' placeholder='Email'/>
       <input class='input-group-text mb-3' type='text' name='password' placeholder='Password'/>
-      <div class='d-flex justify-content-center mb-5'>
-        <button class='btn btn-primary' type='submit'>Login</button>
+      <input class='input-group-text mb-3' type='text' name='confirm_password' placeholder='Confirm Password'/>
+      <div class='d-flex justify-content-center'>
+        <button class='btn btn-primary' type='submit'>Register</button>
       </div>
-    </form>
-    <p>Don't have an account? <a href="{{ url_for('auth.register') }}">Register Here</a></p>
+    </form> 
 </div>
 {% endblock %}
