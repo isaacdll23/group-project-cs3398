@@ -3,20 +3,42 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
-  
-  .title-text {
-    color: whitesmoke;
-  }
+}
 
-  .title-text-secondary {
-    color: teal;
-  }
-  
-  p {
-    color: whitesmoke;
-  }
+.title-text {
+  color: whitesmoke;
+}
 
-  .bg-dark-custom {
-    background-color: #171717;
-  }
+.title-text-secondary {
+  color: teal;
+}
+
+p {
+  color: whitesmoke;
+}
+
+.bg-dark-custom {
+  background-color: #171717;
+}
+
+.table{
+  width: 60vw !important;
+}
+
+th, td {
+  color: teal;
+}
+
+.create-daily-task-btn {
+  width: 10rem;
+}
+
+.fa {
+  color: inherit;
+}
+
+.progress {
+  width: 15vw;
+  height: 30px !important;
+  transition: width 2s;
+}
