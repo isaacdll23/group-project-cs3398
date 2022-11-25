@@ -37,6 +37,7 @@
         </div>
     </div>
 
+    <!-- Tasks table -->
     <table class="table">
         <thead>
             <tr>
@@ -52,7 +53,6 @@
             </tr>
         </thead>
         <tbody>
-            <!-- Data from database -->
             {% for task in daily_tasks %}
             <th scope="row">{{task.task}}</th>
             <td>
@@ -114,6 +114,26 @@
             {% endfor %}
         </tbody>
     </table>
+
+
+
+    <!-- Progress Bars -->
+    <div class="container">
+        <div class="row">
+            <div class="col centered-column-container">
+                <h4 class="title-text-secondary">Daily Progress</h4>
+                <div class="progress">
+                    <div class="progress-bar" style="width: 0%;" role="progressbar" aria-valuemin="0" aria-valuemax="100">0%</div>
+                </div>
+            </div>
+            <div class="col centered-column-container">
+                <h4 class="title-text-secondary">Weekly Progress</h4>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped" id="weeklyProgressBar" style="width: 0%;" role="progressbar" aria-valuemin="0" aria-valuemax="100">0%</div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 

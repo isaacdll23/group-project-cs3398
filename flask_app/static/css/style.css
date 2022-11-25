@@ -36,3 +36,9 @@ th, td {
 .fa {
   color: inherit;
 }
+
+.progress {
+  width: 15vw;
+  height: 30px !important;
+  transition: width 2s;
+}
