@@ -10,7 +10,7 @@ for(let i = 0; i < buttons.length; i++){
             headers: {'Content-Type': 'application/json'}, 
             body: JSON.stringify(data)
         }).then(res => {
-            console.log("Request complete! response:", res);
+            console.log("Request complete. Response:", res);
         });
     })
 }
