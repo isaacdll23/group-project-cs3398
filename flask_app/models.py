@@ -25,3 +25,17 @@ class User(UserMixin, db.Model):
         The password passed as an argument must be in plaintext. 
         """
         return check_password_hash(self.password, password)
+    
+
+class DailyTask(db.Model):
+    __tablename__ = 'daily_tasks'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    task = db.Column(db.String(50), nullable=False)
+    monday = db.Column(db.Integer, default=0)
+    tuesday = db.Column(db.Integer, default=0)
+    wednesday = db.Column(db.Integer, default=0)
+    thursday = db.Column(db.Integer, default=0)
+    friday = db.Column(db.Integer, default=0)
+    saturday = db.Column(db.Integer, default=0)
+    sunday = db.Column(db.Integer, default=0)

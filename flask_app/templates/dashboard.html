@@ -5,7 +5,110 @@
 {% block content %}
 
 <div class="centered-column-container">
-    <h1 class="title-text">Dashboard</h1>
-    <h4 class="title-text">Welcome, {{ current_user.username }}</h4>
+    <h2 class="title-text mb-2">Welcome, {{ current_user.username }}</h2>
+
+        <h4 class="title-text-secondary">Daily Must Do's</h4>
+
+        <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary create-daily-task-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Create Daily Task</button>
+  
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Create New Daily Task</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form method="post" action="{{url_for('main.createDailyTask')}}">
+                <div class="modal-body">
+                    <div class="d-flex justify-content-center">
+                        <input class='input-group-text mb-3' type='text' name='task' placeholder='Task Name'/>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Create Task</button>
+                </div>
+            </form>
+        </div>
+        </div>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+              <th scope="col">Task</th>
+              <th scope="col">Monday</th>
+              <th scope="col">Tuesday</th>
+              <th scope="col">Wednesday</th>
+              <th scope="col">Thursday</th>
+              <th scope="col">Friday</th>
+              <th scope="col">Saturday</th>
+              <th scope="col">Sunday</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Data from database -->
+            {% for task in daily_tasks %}
+            <tr>
+                <th scope="row">{{task.task}}</th>
+                <td>
+                    {% if task.monday == 0 %}
+                    <input class="form-check-input" type="checkbox" value="{{task.task}}" name="daily_monday">
+                    {% else %}
+                    <input class="form-check-input" type="checkbox" value="{{task.task}}" name="daily_monday" checked>
+                    {% endif %}
+                </td>
+                <td>
+                    {% if task.tuesday == 0 %}
+                    <input class="form-check-input" type="checkbox" value="{{task.task}}" name="daily_tuesday" >
+                    {% else %}
+                    <input class="form-check-input" type="checkbox" value="{{task.task}}" name="daily_tuesday" checked>
+                    {% endif %}
+                </td>
+                <td>
+                    {% if task.wednesday == 0 %}
+                    <input class="form-check-input" type="checkbox" value="{{task.task}}" name="daily_wednesday">
+                    {% else %}
+                    <input class="form-check-input" type="checkbox" value="{{task.task}}" name="daily_wednesday" checked>
+                    {% endif %}
+                </td>
+                <td>
+                    {% if task.thursday == 0 %}
+                    <input class="form-check-input" type="checkbox" value="{{task.task}}" name="daily_thursday">
+                    {% else %}
+                    <input class="form-check-input" type="checkbox" value="{{task.task}}" name="daily_thursday" checked>
+                    {% endif %}
+                </td>
+                <td>
+                    {% if task.friday == 0 %}
+                    <input class="form-check-input" type="checkbox" value="{{task.task}}" name="daily_friday">
+                    {% else %}
+                    <input class="form-check-input" type="checkbox" value="{{task.task}}" name="daily_friday" checked>
+                    {% endif %}
+                </td>
+                <td>
+                    {% if task.saturday == 0 %}
+                    <input class="form-check-input" type="checkbox" value="{{task.task}}" name="daily_saturday">
+                    {% else %}
+                    <input class="form-check-input" type="checkbox" value="{{task.task}}" name="daily_saturday" checked>
+                    {% endif %}
+                </td>
+                <td>
+                    {% if task.sunday == 0 %}
+                    <input class="form-check-input" type="checkbox" value="{{task.task}}" name="daily_sunday">
+                    {% else %}
+                    <input class="form-check-input" type="checkbox" value="{{task.task}}" name="daily_sunday" checked>
+                    {% endif %}
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+    </table>
 </div>
+
+
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+
 {% endblock %}
