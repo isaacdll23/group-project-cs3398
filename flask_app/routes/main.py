@@ -28,11 +28,8 @@ def createDailyTask():
 @login_required
 @main_blueprint.route('/updateDailyTask', methods=['PATCH'])
 def updateDailyTask():
-    print('raw: ', request.data)
     data = request.data.decode('utf8').replace("'", '"')
     data = json.loads(data)
-
-    print(data)
 
     task = DailyTask.query.filter_by(task=data['task'], user_id=current_user.id).first()
     if data['day'] == 'daily_monday':
@@ -58,3 +55,12 @@ def updateDailyTask():
 
     db.session.commit()
     return {"result": "GOOD"}, 200
+
+
+@login_required
+@main_blueprint.route('/deleteDailyTask', methods=['POST'])
+def deleteDailyTask():
+    task = DailyTask.query.filter_by(id=request.form['task_id']).first()
+    db.session.delete(task)
+    db.session.commit()
+    return redirect(url_for('main.dashboard'))
