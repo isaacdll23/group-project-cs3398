@@ -32,3 +32,7 @@ th, td {
 .create-daily-task-btn {
   width: 10rem;
 }
+
+.fa {
+  color: inherit;
+}
