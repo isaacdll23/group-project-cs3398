@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<div class="centered-column-container">
+    <h2 class="title-text mb-2">Weather for {{zipcode}}</h2>
+    <h3>{{description}}</h3>
+    <img src="{{img_src}}">
+    <p>Current Temperature: {{current}}</p>
+    <p>Feels Like: {{feels_like}}</p>
+
+
+    
+
+
+
+
+{% endblock %}

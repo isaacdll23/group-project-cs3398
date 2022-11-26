@@ -12,11 +12,13 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(80), nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(255), nullable=False)
+    zipcode = db.Column(db.Integer, nullable=False)
     
     # to easily initialize a user object and hash the password
-    def __init__(self, username, email, password):
+    def __init__(self, username, email, zipcode, password):
         self.username = username
         self.email = email
+        self.zipcode = zipcode
         self.password = generate_password_hash(password)
 
     def verify_password(self, password):

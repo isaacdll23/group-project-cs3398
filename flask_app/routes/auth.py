@@ -50,7 +50,7 @@ def register():
             return redirect(url_for('auth.register'))
 
         # create user and redirect
-        user = User(request.form['username'], request.form['email'], request.form['password'])
+        user = User(request.form['username'], request.form['email'], request.form['zipcode'], request.form['password'])
         try:
             db.session.add(user)
             db.session.commit()

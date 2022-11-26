@@ -1,10 +1,14 @@
 import json
 from flask import Blueprint, render_template, request, redirect, url_for
 from flask_login import login_required, current_user
-from flask_app.models import db, DailyTask
+from flask_app.models import db, DailyTask, User
+import requests
+import dotenv
 
 # create blueprint for the main route of the site
 main_blueprint = Blueprint('main', __name__)
+
+WEATHER_API_KEY = dotenv.get_key('.env','WEATHER_API_KEY')
 
 @main_blueprint.route('/')
 def index():
@@ -16,6 +20,39 @@ def dashboard():
     daily_tasks = DailyTask.query.filter_by(user_id=current_user.id)
         
     return render_template('dashboard.html', daily_tasks=daily_tasks)
+
+@login_required
+@main_blueprint.route('/weather')
+def weather():
+    zipcode = User.query.filter_by(id=current_user.id).value(current_user.zipcode)
+    response = requests.get(
+        "http://api.openweathermap.org/geo/1.0/zip",
+        params={
+            'zip' : 76065,
+            'appid' : WEATHER_API_KEY
+        }
+    )
+    zip_data = response.json()
+    loc_lat = zip_data['lat']
+    loc_long = zip_data['lon']
+    response = requests.get(
+        "http://api.openweathermap.org/data/2.5/weather",
+        params={
+            'lat' : loc_lat,
+            'lon' : loc_long,
+            'appid' : WEATHER_API_KEY,
+            'units' : 'imperial'
+        }
+    )
+    weather_data = response.json()
+    weather_description = weather_data['weather'][0]['description']
+    current_temp = weather_data['main']['temp']
+    feels_like_temp = weather_data['main']['feels_like']
+    weather_img_id = weather_data['weather'][0]['icon']
+    image_url = f"http://openweathermap.org/img/wn/{weather_img_id}@2x.png"
+    return render_template('weather.html', zipcode=zipcode, 
+        description=weather_description, current=current_temp, 
+        feels_like=feels_like_temp, img_src=image_url)
 
 @login_required
 @main_blueprint.route('/createDailyTask', methods=['POST'])
