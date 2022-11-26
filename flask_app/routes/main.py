@@ -27,6 +27,7 @@ def weather():
     zipcode = User.query.filter_by(id=current_user.id).value(current_user.zipcode)
     response = requests.get(
         "http://api.openweathermap.org/geo/1.0/zip",
+        timeout=5,
         params={
             'zip' : 76065,
             'appid' : WEATHER_API_KEY
@@ -37,6 +38,7 @@ def weather():
     loc_long = zip_data['lon']
     response = requests.get(
         "http://api.openweathermap.org/data/2.5/weather",
+        timeout=5,
         params={
             'lat' : loc_lat,
             'lon' : loc_long,
