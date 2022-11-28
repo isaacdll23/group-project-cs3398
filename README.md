@@ -7,7 +7,7 @@
 
 ### Garrett Pull Requests with Garrett's Comments
 1. [First Pull Request](https://github.com/isaacdll23/group-project-cs3398/pull/3)
-2. [Second Pull Request] "LINK STILL NEEDED"
+2. [Second Pull Request](https://github.com/isaacdll23/group-project-cs3398/pull/4)
 
 ### Group Proposal
 [Google Doc Link] "LINK STILL NEEDED"
