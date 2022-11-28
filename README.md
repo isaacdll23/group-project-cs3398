@@ -10,7 +10,7 @@
 2. [Second Pull Request](https://github.com/isaacdll23/group-project-cs3398/pull/4)
 
 ### Group Proposal
-[Google Doc Link] "LINK STILL NEEDED"
+[Google Doc Link](https://docs.google.com/document/d/1hneNPvOka68Lljj-VBHHjO1BybjnyTM28D7Pj0F9Fs4/edit?usp=sharing)
 
 ### Fly.io Deployment
 [Fly Link] "LINK STILL NEEDED"
