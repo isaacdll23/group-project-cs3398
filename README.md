@@ -12,8 +12,9 @@
 ### Group Proposal
 [Google Doc Link](https://docs.google.com/document/d/1hneNPvOka68Lljj-VBHHjO1BybjnyTM28D7Pj0F9Fs4/edit?usp=sharing)
 
-### Fly.io Deployment
-[Fly Link] "LINK STILL NEEDED"
+### Deployment
+The project was deployed manually using gunicorn and NGINX\
+[Project Link](https://project.isaacdelalama.dev/)
 
 ### Things Enjoyed/Liked About this Project
 1. Thing 1
