@@ -19,12 +19,12 @@ The project was deployed manually using gunicorn and NGINX\
 ### Things Enjoyed/Liked About this Project
 1. [Isaac] I enjoyed the project because it allowed me to better my skills with Flask and JavaScript.
     It has been some time since I had used JavaScript for styling and functionality and I feel more confident in my JavaScript skills.
-2. Thing 2
+2. [Garrett] I enjoyed the freedom to decide what we were going to make for our project.  That freedom really allowed us to explore and expand our creativity.
 
 ### Things Not Enjoyed/Disliked About this Project
 1. [Isaac] There was not much that I disliked about this project. I would mention that since I've learned to deploy websites,
 I prefer to deploy them myself on my server machine rather than using Fly.io. Fly.io seems to be in its early stages since transitioning from Heroku and it lacks documentation for niche things and issues.
-2. Thing 2
+2. [Garrett] The main thing I did not enjoy about this project was some of the tools we used were things we had not used in class but my partner was familiar with.  Not that I had any issue with the systems he used, it just added an extra layer to the project.
 
 ### Technical Requirements
 1. Postgres Database
